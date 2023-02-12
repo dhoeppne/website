@@ -26,7 +26,7 @@ spec:
     spec:
       containers:
       - name: website
-        image: dhoeppner/website:latest
+        image: dhoeppner/website:1.4.0
         imagePullPolicy: "Always"
         ports:
         - containerPort: 80
