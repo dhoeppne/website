@@ -28,6 +28,7 @@ jobs:
       run: |
         echo "Output of version: ${{ steps.semver.outputs.new_version }}"
         echo "Output of version_tag: ${{ steps.semver.outputs.new_tag }}"
+        echo "Output of commit: ${{ steps.semver.outputs.commit }}"
 
   # create_github_tag:
   #   needs: [tag_version]
