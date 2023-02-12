@@ -76,7 +76,15 @@ const Hero = () => {
       </p>
     </>
   );
-  const five = <a href={`mailto:email@davidhoeppner.ca}`}>Let's chat :)</a>;
+  const five = (
+    <a
+      href={`mailto:email@davidhoeppner.ca}`}
+      className="email-link"
+      target="_blank"
+      rel="noreferrer">
+      Let's chat :)
+    </a>
+  );
 
   const items = [one, two, three, four, five];
 
