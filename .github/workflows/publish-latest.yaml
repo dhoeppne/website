@@ -29,20 +29,20 @@ jobs:
         echo "Output of version: ${{ steps.semver.outputs.new_version }}"
         echo "Output of version_tag: ${{ steps.semver.outputs.new_tag }}"
 
-  create_github_tag:
-    needs: [tag_version]
-    runs-on: ubuntu-latest
-    steps:
-      - uses: actions/checkout@v2
-      - name: Create release entry on GitHub
-        uses: ncipollo/release-action@v1.12.0
-        with:
-          prerelease: false
-          tag: latest
-          commit: ${{ needs.tag_version.outputs.commit }}
-          token: ${{ secrets.GITHUB_TOKEN }}
-          body: ${{ steps.tag_version.outputs.changelog }}
-          generateReleaseNotes: true
+  # create_github_tag:
+  #   needs: [tag_version]
+  #   runs-on: ubuntu-latest
+  #   steps:
+  #     - uses: actions/checkout@v2
+  #     - name: Create release entry on GitHub
+  #       uses: ncipollo/release-action@v1.12.0
+  #       with:
+  #         prerelease: false
+  #         tag: latest
+  #         commit: ${{ needs.tag_version.outputs.commit }}
+  #         token: ${{ secrets.GITHUB_TOKEN }}
+  #         body: ${{ steps.tag_version.outputs.changelog }}
+  #         generateReleaseNotes: true
   
   release_docker_image:
     needs: [tag_version]
@@ -53,6 +53,10 @@ jobs:
         with:
           username: ${{ secrets.DOCKER_USERNAME }}
           password: ${{ secrets.DOCKER_PASSWORD }}
+      
+      - name: Create docker driver
+        run: |
+          docker buildx create --use --driver=docker-container
 
       - name: Build and push the Docker image
         uses: docker/build-push-action@v3
