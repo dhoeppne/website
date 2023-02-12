@@ -73,7 +73,7 @@ jobs:
     runs-on: ubuntu-latest
     name: Deploy
     if: github.ref == 'refs/heads/main'
-    needs: [ release_docker_image ]
+    needs: [ release_docker_image, tag_version ]
     steps:
       - name: Set the Kubernetes context
         uses: azure/k8s-set-context@v2
