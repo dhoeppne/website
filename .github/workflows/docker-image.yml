@@ -22,6 +22,7 @@ jobs:
       with:
         github_token: ${{ secrets.GITHUB_TOKEN }}
         release_branches: main,develop
+        default_bump: false # do not bump on merges to main
       
     - name: Debug Version
       continue-on-error: true
