@@ -64,7 +64,7 @@ jobs:
           push: true
           tags: |
             dhoeppner/website:latest
-            dhoeppner/website:${{ needs.build.outputs.commit }}
+            dhoeppner/website:${{ needs.tag_version.outputs.commit }}
           cache-from: type=gha
           cache-to: type=gha,mode=max
 
@@ -93,4 +93,4 @@ jobs:
             k8s/ingress.yaml
             k8s/production_issuer.yaml
           images: |
-            dhoeppner/website:${{ needs.build.outputs.commit }}
+            dhoeppner/website:${{ needs.tag_version.outputs.commit }}
