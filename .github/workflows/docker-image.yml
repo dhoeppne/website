@@ -11,7 +11,7 @@ jobs:
     outputs:
       version: ${{ steps.semver.outputs.new_version }}
       version_tag: ${{ steps.semver.outputs.new_tag }}
-      commit: ${{ env.GITHUB_SHA }}
+      commit: ${{ github.sha }}
     steps:
     - uses: actions/checkout@v3
       with:
@@ -27,8 +27,7 @@ jobs:
       run: |
         echo "Output of version: ${{ steps.semver.outputs.new_version }}"
         echo "Output of version_tag: ${{ steps.semver.outputs.new_tag }}"
-        echo "Output of commit: ${{ env.GITHUB_SHA }}"
-        echo "remove me: ${{ github.sha }}"
+        echo "Output of commit: ${{ github.sha }}"
 
   create_github_tag:
     needs: [tag_version]
