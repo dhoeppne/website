@@ -56,6 +56,6 @@ jobs:
           password: ${{ secrets.DOCKER_PASSWORD }}
 
       - name: Create docker release
-        run: docker build . --file Dockerfile --tag dhoeppner/website:${{ needs.tag_version.outputs.version }}
+        run: docker buildx build . --file Dockerfile --tag dhoeppner/website:${{ needs.tag_version.outputs.version }} --cache-to type=gha --cache-from type=gha 
 
 
