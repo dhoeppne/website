@@ -29,7 +29,7 @@ jobs:
         echo "Output of version_tag: ${{ steps.semver.outputs.new_tag }}"
 
   create_github_tag:
-    needs: [build]
+    needs: [tag_version]
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v2
@@ -43,7 +43,7 @@ jobs:
           generateReleaseNotes: true
   
   create_docker_tag:
-    needs: [build]
+    needs: [tag_version]
     runs-on: ubuntu-latest
     steps:
       - name: Check out the repo
