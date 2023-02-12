@@ -2,7 +2,7 @@ name: Build New Image
 
 on:
   push:
-    branches: [ "develop" ]
+    branches: [ "main" ]
 
 jobs:
 
@@ -38,7 +38,7 @@ jobs:
         uses: ncipollo/release-action@v1.12.0
         with:
           prerelease: false
-          tag: ${{ needs.build.outputs.version_tag }}
+          tag: latest
           commit: ${{ needs.build.outputs.commit }}
           token: ${{ secrets.GITHUB_TOKEN }}
           generateReleaseNotes: true
@@ -57,8 +57,8 @@ jobs:
           password: ${{ secrets.DOCKER_PASSWORD }}
 
       - name: Create docker release
-        run: docker build . --file Dockerfile --tag dhoeppner/website:${{ needs.build.outputs.version }}
+        run: docker build . --file Dockerfile --tag dhoeppner/website:latest
         
       - name: Upload to docker hub
-        run: docker push dhoeppner/website:${{ needs.build.outputs.version }}
+        run: docker push dhoeppner/website:latest
 
