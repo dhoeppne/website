@@ -36,7 +36,7 @@ jobs:
       - name: Create release entry on GitHub
         uses: ncipollo/release-action@v1.12.0
         with:
-          prerelease: false
+          prerelease: true
           tag: ${{ needs.version_tag.outputs.version_tag }}
           commit: ${{ needs.version_tag.outputs.commit }}
           token: ${{ secrets.GITHUB_TOKEN }}
