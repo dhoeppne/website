@@ -6,7 +6,7 @@ on:
 
 jobs:
 
-  build:
+  version_tag:
     runs-on: ubuntu-latest
     outputs:
       version: ${{ steps.semver.outputs.new_version }}
@@ -21,8 +21,6 @@ jobs:
       uses: mathieudutour/github-tag-action@v6.1
       with:
         github_token: ${{ secrets.GITHUB_TOKEN }}
-        release_branches: main,develop
-        default_bump: false # do not bump on merges to main
       
     - name: Debug Version
       continue-on-error: true
@@ -39,8 +37,8 @@ jobs:
         uses: ncipollo/release-action@v1.12.0
         with:
           prerelease: false
-          tag: ${{ needs.build.outputs.version_tag }}
-          commit: ${{ needs.build.outputs.commit }}
+          tag: ${{ needs.version_tag.outputs.version_tag }}
+          commit: ${{ needs.version_tag.outputs.commit }}
           token: ${{ secrets.GITHUB_TOKEN }}
           generateReleaseNotes: true
   
@@ -58,8 +56,6 @@ jobs:
           password: ${{ secrets.DOCKER_PASSWORD }}
 
       - name: Create docker release
-        run: docker build . --file Dockerfile --tag dhoeppner/website:${{ needs.build.outputs.version }}
-        
-      - name: Upload to docker hub
-        run: docker push dhoeppner/website:${{ needs.build.outputs.version }}
+        run: docker build . --file Dockerfile --tag dhoeppner/website:${{ needs.version_tag.outputs.version }}
+
 
