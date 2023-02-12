@@ -5,6 +5,8 @@
   The repo of <a href="davidhoeppner.ca" target="_blank">davidhoeppner.ca</a> built with <a href="https://www.gatsbyjs.org/" target="_blank">Gatsby</a> and hosted with <a href="https://www.netlify.com/" target="_blank">Kubernetes on DigitalOcean.</a> Based off of the V4 template from <a href="https://github.com/bchiang7/v4" target="_blank">bchiang7</a>. You can find her at <a href="brittanychiang.com">https://brittanychiang.com</a>
 </p>
 
+[![Publish to Docker and k8s](https://github.com/dhoeppne/website/actions/workflows/publish-latest.yaml/badge.svg)](https://github.com/dhoeppne/website/actions/workflows/publish-latest.yaml)
+
 ## 🛠 Installation & Set Up
 
 1. Install the Gatsby CLI
