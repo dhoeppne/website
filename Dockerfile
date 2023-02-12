@@ -3,7 +3,7 @@ FROM --platform=linux/amd64 node:14-alpine AS build
 WORKDIR /app
 COPY . .
 
-RUN apk update -qq && apk add -qq libtool automake autoconf nasm vips fftw binutils build-base
+RUN apk update -qq && apk add -qq libtool automake autoconf nasm vips fftw binutils build-base lscpu
 RUN yarn
 RUN yarn gatsby telemetry --disable
 RUN yarn build
