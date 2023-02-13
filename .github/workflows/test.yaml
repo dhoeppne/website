@@ -5,11 +5,12 @@ on:
     types:
       - opened
       - reopened
+    branches:
+      - main
 
 jobs:
 
   test:
-    if:  startsWith(github.head_ref, 'develop')
     runs-on: ubuntu-latest
   
     steps:
@@ -24,7 +25,6 @@ jobs:
     # this is where I'd put tests.... if I had them.....
   
   docker_image_test:
-    if:  startsWith(github.head_ref, 'main')
     runs-on: ubuntu-latest
   
     steps:
