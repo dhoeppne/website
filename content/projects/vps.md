@@ -9,4 +9,4 @@ tech:
 showInProjects: true
 ---
 
-Using rinetd and dockerized Tailscale, this VPS hosted setup allows me to expose my local services to the world-wide web in a secure and durable manner. Due to the Tailscale UDP magic, this implementation renders an domestic static IP unnecessary.
+Using rinetd and dockerized Tailscale, this VPS hosted setup allows me to expose my local services to the world-wide web in a secure and durable manner. Thanks to Tailscale NAT traversal magic, this implementation renders an domestic static IP irrelevant.

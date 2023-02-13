@@ -9,3 +9,5 @@ Dockerfile*
 docker-compose.yml
 public
 .cache
+.github
+.husky
