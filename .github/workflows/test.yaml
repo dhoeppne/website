@@ -33,5 +33,7 @@ jobs:
     runs-on: ubuntu-latest
   
     steps:
+    - name: Checkout
+      uses: actions/checkout@v1
     - uses: ./.github/workflows/docker-image.yaml
       name: Build docker image
