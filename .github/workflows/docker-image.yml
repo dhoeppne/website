@@ -44,7 +44,7 @@ jobs:
           token: ${{ secrets.GITHUB_TOKEN }}
           generateReleaseNotes: true
   
-  create_docker_tag:
+  create_docker_build:
     needs: [tag_version]
     runs-on: ubuntu-latest
     steps:
