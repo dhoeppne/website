@@ -12,3 +12,4 @@ url: 'https://intuit.com/'
 - Created and updated new and existing Jenkins, Kubernetes, and ArgoCD pipelines for releasing web apps and plugins, and released services via these pipelines.
 - Designed and wrote a React/Redux plugin to manage web app configurations within an internal Intuit development environment
 - Lead sprints as Scrum Leader, utilizing Agile development practices to ensure developer recognition and timely deliverables
+- Organized weekly meetings across timezones and teams to gather stakeholder opinions on development decisions

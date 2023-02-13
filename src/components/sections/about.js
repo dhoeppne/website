@@ -153,7 +153,7 @@ const About = () => {
 
             <p>
               Fast-forward to today, and I’ve had the privilege of working at{' '}
-              <a href="https://www.intuit.com/">Intuit</a>, for 5 years both as an intern and full
+              <a href="https://www.intuit.com/">Intuit</a> for 5 years, both as an intern and full
               time engineer. I currently work on the AppFabric Team, which provides cross-app
               support for hundreds of Intuit applications, including QuickBooks Online, TurboTax
               Online, and Mint.
