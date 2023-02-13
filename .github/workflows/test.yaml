@@ -9,7 +9,7 @@ on:
 jobs:
 
   test:
-    if:  startsWith(github.head_ref, 'main')
+    if:  startsWith(github.head_ref, 'develop')
     runs-on: ubuntu-latest
   
     steps:
