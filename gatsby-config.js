@@ -4,7 +4,7 @@ module.exports = {
   siteMetadata: {
     title: 'David Hoeppner',
     description:
-      'David Hoeppner is a software engineer who specializes in building (and occasionally designing) exceptional digital experiences.',
+      'David Hoeppner is a software engineer who specializes in building the platforms other developers need to succeed.',
     siteUrl: 'https://davidhoeppber.ca', // No trailing slash allowed!
     image: '/og.png', // Path to your image you placed in the 'static' folder
   },
