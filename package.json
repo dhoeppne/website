@@ -1,6 +1,6 @@
 {
   "name": "david-website",
-  "description": "Personal Website V4",
+  "description": "Personal Website hosted on DigitalOcean via Kubernetes",
   "version": "1.0.0",
   "author": "David Hoeppner <email@davidhoeppner.ca>",
   "repository": {
