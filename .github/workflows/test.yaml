@@ -16,7 +16,7 @@ jobs:
     - name: Checkout
       uses: actions/checkout@v1
 
-    - name: Use Node.js ${{ matrix.node-version }}
+    - name: Use Node.js 14.16.0
       uses: actions/setup-node@v3
       with:
         node-version: 14.16.0
@@ -30,35 +30,3 @@ jobs:
     steps:
     - uses: ./.github/workflows/docker-image.yaml
       name: Build docker image
-
-  create_github_tag:
-    needs: [tag_version]
-    runs-on: ubuntu-latest
-    steps:
-      - uses: actions/checkout@v2
-      - name: Create release entry on GitHub
-        uses: ncipollo/release-action@v1.12.0
-        with:
-          prerelease: true
-          tag: ${{ needs.tag_version.outputs.version_tag }}
-          commit: ${{ needs.tag_version.outputs.commit }}
-          token: ${{ secrets.GITHUB_TOKEN }}
-          generateReleaseNotes: true
-  
-  create_docker_tag:
-    needs: [tag_version]
-    runs-on: ubuntu-latest
-    steps:
-      - name: Check out the repo
-        uses: actions/checkout@v3
-
-      - name: Log in to Docker Hub
-        uses: docker/login-action@f054a8b539a109f9f41c372932f1ae047eff08c9
-        with:
-          username: ${{ secrets.DOCKER_USERNAME }}
-          password: ${{ secrets.DOCKER_PASSWORD }}
-
-      - name: Create docker release
-        run: docker buildx build . --file Dockerfile --tag dhoeppner/website:${{ needs.tag_version.outputs.version }} --cache-to type=gha --cache-from type=gha 
-
-
