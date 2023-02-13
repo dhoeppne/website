@@ -1,36 +1,37 @@
 name: Build New Image
 
 on:
-  push:
-    branches: [ "develop" ]
+  pull_request:
+    types:
+      - opened
+      - reopened
 
 jobs:
 
-  tag_version:
+  test:
+    if:  startsWith(github.head_ref, 'main')
     runs-on: ubuntu-latest
-    outputs:
-      version: ${{ steps.semver.outputs.new_version }}
-      version_tag: ${{ steps.semver.outputs.new_tag }}
-      commit: ${{ github.sha }}
+  
     steps:
-    - uses: actions/checkout@v3
+    - name: Checkout
+      uses: actions/checkout@v1
+
+    - name: Use Node.js ${{ matrix.node-version }}
+      uses: actions/setup-node@v3
       with:
-        fetch-depth: 0
-    - name: Bump version and push tag
-      id: semver
-      uses: mathieudutour/github-tag-action@v6.1
-      with:
-        github_token: ${{ secrets.GITHUB_TOKEN }}
-      
-    - name: Debug Version
-      continue-on-error: true
-      run: |
-        echo "Output of version: ${{ steps.semver.outputs.new_version }}"
-        echo "Output of version_tag: ${{ steps.semver.outputs.new_tag }}"
-        echo "Output of commit: ${{ github.sha }}"
+        node-version: 14.16.0
+    - run: yarn lint-staged
+    # this is where I'd put tests.... if I had them.....
+  
+  docker_image_test:
+    if:  startsWith(github.head_ref, 'main')
+    runs-on: ubuntu-latest
+  
+    steps:
+    - uses: ./.github/workflows/docker-image.yaml
+      name: Build docker image
 
   create_github_tag:
-    if:  startsWith(github.head_ref, 'develop')
     needs: [tag_version]
     runs-on: ubuntu-latest
     steps:
