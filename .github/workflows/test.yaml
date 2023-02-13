@@ -22,10 +22,10 @@ jobs:
     - name: Checkout
       uses: actions/checkout@v1
 
-    - name: Use Node.js 14.16.0
+    - name: Use Node.js lts/hydrogen
       uses: actions/setup-node@v3
       with:
-        node-version: 14.16.0
+        node-version: lts/hydrogen
 
     - name: Run install
       uses: borales/actions-yarn@v4

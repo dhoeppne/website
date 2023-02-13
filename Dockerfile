@@ -1,4 +1,4 @@
-FROM --platform=linux/amd64 node:14-alpine AS build
+FROM --platform=linux/amd64 node:18-alpine AS build
 
 WORKDIR /app
 COPY . .
@@ -10,7 +10,7 @@ RUN yarn build
 
 EXPOSE 80
 
-FROM --platform=linux/amd64 nginx:1.14-alpine AS deploy
+FROM --platform=linux/amd64 nginx:1.18-alpine AS deploy
 
 WORKDIR /usr/share/nginx/html
 RUN rm -rf ./*
