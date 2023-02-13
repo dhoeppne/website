@@ -28,12 +28,3 @@ jobs:
       with:
         cmd: lint-staged
     # this is where I'd put tests.... if I had them.....
-  
-  docker_image_test:
-    runs-on: ubuntu-latest
-  
-    steps:
-    - name: Checkout
-      uses: actions/checkout@v1
-    - uses: ./.github/workflows/docker-image.yaml
-      name: Build docker image
