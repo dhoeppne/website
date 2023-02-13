@@ -4,6 +4,10 @@ on:
   push:
     branches: [ "develop" ]
 
+concurrency: 
+  group: docker-image
+  cancel-in-progress: true
+
 jobs:
 
   tag_version:

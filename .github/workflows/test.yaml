@@ -5,8 +5,13 @@ on:
     types:
       - opened
       - reopened
+      - synchronize
     branches:
       - main
+
+concurrency: 
+  group: test
+  cancel-in-progress: true
 
 jobs:
 
@@ -21,12 +26,14 @@ jobs:
       uses: actions/setup-node@v3
       with:
         node-version: 14.16.0
-    - run: yarn lint-staged
+
+    - name: Run install
+      uses: borales/actions-yarn@v4
+      with:
+        cmd: install
+
+    - name: Run lint-staged
+      uses: borales/actions-yarn@v4
+      with:
+        cmd: lint-staged
     # this is where I'd put tests.... if I had them.....
-  
-  docker_image_test:
-    runs-on: ubuntu-latest
-  
-    steps:
-    - uses: ./.github/workflows/docker-image.yaml
-      name: Build docker image
