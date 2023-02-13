@@ -30,6 +30,7 @@ jobs:
         echo "Output of commit: ${{ github.sha }}"
 
   create_github_tag:
+    if:  startsWith(github.head_ref, 'develop')
     needs: [tag_version]
     runs-on: ubuntu-latest
     steps:
@@ -43,7 +44,7 @@ jobs:
           token: ${{ secrets.GITHUB_TOKEN }}
           generateReleaseNotes: true
   
-  create_docker_tag:
+  create_docker_build:
     needs: [tag_version]
     runs-on: ubuntu-latest
     steps:

@@ -1,0 +1,32 @@
+name: Build New Image
+
+on:
+  pull_request:
+    types:
+      - opened
+      - reopened
+
+jobs:
+
+  test:
+    if:  startsWith(github.head_ref, 'main')
+    runs-on: ubuntu-latest
+  
+    steps:
+    - name: Checkout
+      uses: actions/checkout@v1
+
+    - name: Use Node.js 14.16.0
+      uses: actions/setup-node@v3
+      with:
+        node-version: 14.16.0
+    - run: yarn lint-staged
+    # this is where I'd put tests.... if I had them.....
+  
+  docker_image_test:
+    if:  startsWith(github.head_ref, 'main')
+    runs-on: ubuntu-latest
+  
+    steps:
+    - uses: ./.github/workflows/docker-image.yaml
+      name: Build docker image
