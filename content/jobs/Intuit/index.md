@@ -7,7 +7,7 @@ range: 'May 2019 - Current'
 url: 'https://intuit.com/'
 ---
 
-- Developed and maintained web app configuration management dashboards for thousands of developers at Intuit
+- Developed and maintained web app configuration management dashboards for the 1000s of developers at Intuit
 - Wrote tests to ensure dependable UIs and clean data management
 - Created and updated new and existing Jenkins, Kubernetes, and ArgoCD pipelines for releasing web apps and plugins, and released services via these pipelines.
 - Designed and wrote a React/Redux plugin to manage web app configurations within an internal Intuit development environment
