@@ -146,11 +146,8 @@ const About = () => {
             </p>
 
             <p>
-              Fast-forward to today, and I’ve had the privilege of working at{' '}
-              <a href="https://www.intuit.com/">Intuit</a> for 5 years, both as an intern and full
-              time engineer. I currently work on the AppFabric Team, which provides cross-app
-              support for 100s of Intuit applications, including QuickBooks Online, TurboTax Online,
-              and Mint.
+              Fast-forward to today, and after 5 great years working for {' '}
+              <a href="https://www.intuit.com/">Intuit</a> as part of the AppFabric team, I now have the pleasure of working in beautiful British Columbia for {' '}<a href="https://www.workday.com/">Workday</a>, where I have joined the Search Experiences team as a Sr. Associate Engineer.
             </p>
 
             <p>Here are a few technologies I’ve been working with recently:</p>

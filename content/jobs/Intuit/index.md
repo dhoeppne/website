@@ -3,7 +3,7 @@ date: '2019-05-01'
 title: 'Software Developer II'
 company: 'Intuit'
 location: 'Mountain View, CA'
-range: 'May 2019 - Current'
+range: 'May 2019 - June 2023'
 url: 'https://intuit.com/'
 ---
 
