@@ -54,8 +54,9 @@ const Contact = () => {
       <h2 className="title">Get In Touch</h2>
 
       <p>
-        Although I currently work for Intuit in Sunnyvale, California, I am actively seeking either
-        remote or in-person employment in Vancouver, Canada.
+        I currently work at Workday as a Software Engineer in Vancouver, Canada as a part of the
+        Search team. Don't hesitate to reach out to me if you have any questions or just want to say
+        hi!
       </p>
 
       <a className="email-link" href={`mailto:${email}`}>
